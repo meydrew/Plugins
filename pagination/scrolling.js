@@ -15,7 +15,7 @@
  *        } );
  *    } );
  */
-
+var $jq = jQuery.noConflict(true);
 
 /* Time between each scrolling frame */
 $jq.fn.dataTableExt.oPagination.iTweenTime = 100;
