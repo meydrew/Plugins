@@ -9,8 +9,8 @@
  *  @author [Allan Jardine](http://sprymedia.co.uk)
  *
  *  @example
- *    $(document).ready(function() {
- *        $('#example').dataTable( {
+ *    $jq(document).ready(function() {
+ *        $jq('#example').dataTable( {
  *            "sPaginationType": "scrolling"
  *        } );
  *    } );
@@ -18,9 +18,9 @@
 
 
 /* Time between each scrolling frame */
-$.fn.dataTableExt.oPagination.iTweenTime = 100;
+$jq.fn.dataTableExt.oPagination.iTweenTime = 100;
 
-$.fn.dataTableExt.oPagination.scrolling = {
+$jq.fn.dataTableExt.oPagination.scrolling = {
 	"fnInit": function ( oSettings, nPaging, fnCallbackDraw )
 	{
 		var oLang = oSettings.oLanguage.oPaginate;
@@ -38,9 +38,9 @@ $.fn.dataTableExt.oPagination.scrolling = {
 			:
 			'<a class="'+oSettings.oClasses.sPagePrevDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button"><span class="'+oSettings.oClasses.sPageJUIPrev+'"></span></a>'+
 			'<a class="'+oSettings.oClasses.sPageNextDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button"><span class="'+oSettings.oClasses.sPageJUINext+'"></span></a>';
-		$(nPaging).append( sAppend );
+		$jq(nPaging).append( sAppend );
 
-		var els = $('a', nPaging);
+		var els = $jq('a', nPaging);
 		var nPrevious = els[0],
 			nNext = els[1];
 
@@ -60,7 +60,7 @@ $.fn.dataTableExt.oPagination.scrolling = {
 				oSettings.iPagingEnd = 0;
 			}
 
-			var iTween = $.fn.dataTableExt.oPagination.iTweenTime;
+			var iTween = $jq.fn.dataTableExt.oPagination.iTweenTime;
 			var innerLoop = function () {
 				if ( oSettings.iPagingLoopStart > oSettings.iPagingEnd ) {
 					oSettings.iPagingLoopStart--;
@@ -89,7 +89,7 @@ $.fn.dataTableExt.oPagination.scrolling = {
 				oSettings.iPagingEnd = oSettings._iDisplayStart + oSettings._iDisplayLength;
 			}
 
-			var iTween = $.fn.dataTableExt.oPagination.iTweenTime;
+			var iTween = $jq.fn.dataTableExt.oPagination.iTweenTime;
 			var innerLoop = function () {
 				if ( oSettings.iPagingLoopStart < oSettings.iPagingEnd ) {
 					oSettings.iPagingLoopStart++;
